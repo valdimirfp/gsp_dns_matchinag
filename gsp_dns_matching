@@ -1,0 +1,3 @@
+#!/bin/bash
+gcloud dns managed-zones list --project sbergames-infra | grep -v DESCRIP | awk '{print $1}' | while read pr; do gcloud dns record-sets list --zone=$pr --filter TYPE=A --project sbergames-infra ; done
+echo "END script"
